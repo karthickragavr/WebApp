@@ -1,33 +1,108 @@
 #game-world {
-    width: 600px;
+    width: 95%;
+    /* Occupy most of the screen width on mobile */
+    max-width: 600px;
+    /* But don't exceed 600px on desktop */
     height: 300px;
+    /* Shorter height is often better for mobile landscape */
     border-bottom: 3px solid #ff4081;
-    margin: 50px auto;
+    margin: 20px auto;
+    touch-action: none;
+    /* Prevents the screen from scrolling while playing */
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#player { width: 50px; height: 50px; position: absolute; bottom: 0; left: 50px; font-size: 40px; transition: bottom 0.1s; transform: scaleX(-1);
+#player {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    font-size: 40px;
+    transition: bottom 0.1s;
+    transform: scaleX(-1);
 }
-#obstacle { width: 40px; height: 40px; position: absolute; bottom: 0; right: -50px; font-size: 30px; }
-#boss { width: 100px; height: 100px; position: absolute; top: 50px; left: 250px; font-size: 80px; cursor: pointer; animation: float 2s infinite ease-in-out; }
+
+#obstacle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+    font-size: 30px;
+}
+
+#boss {
+    
+    /* ... existing styles ... */
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 50px; 
+    left: 250px; 
+    font-size: 80px; 
+    cursor: pointer; 
+    animation: float 2s infinite ease-in-out;
+
+    z-index: 100;
+    /* Ensure it's above the game world */
+    cursor: pointer;
+    display: none;
+    /* Hidden until score reaches 10 */
+    user-select: none;
+    /* Prevents text-selection while tapping fast */
+    -webkit-tap-highlight-color: transparent;
+    /* Removes the grey box on mobile */
+    min-width: 100px;
+    /* Ensure a large enough tap target for fingers */
+    min-height: 100px;
+}
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
-.jump { animation: jump-anim 0.5s forwards; }
+.jump {
+    animation: jump-anim 0.5s forwards;
+}
+
 @keyframes jump-anim {
-    0% { bottom: 0; }
-    50% { bottom: 120px; }
-    100% { bottom: 0; }
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 120px;
+    }
+
+    100% {
+        bottom: 0;
+    }
 }
 
-.hidden { display: none; }
-#letter { 
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    background: white; padding: 20px; border-radius: 15px; border: 2px solid #ff4081; text-align: center;
+.hidden {
+    display: none;
+}
+
+#letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff4081;
+    text-align: center;
 }
