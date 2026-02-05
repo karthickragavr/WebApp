@@ -110,17 +110,11 @@ navBtn.addEventListener('touchstart', navigateToSurprise, { passive: false });
 
 
 
-//Instructions
-const modal = document.getElementById('instructions-modal');
-// Modal Close & Game Start
-document.getElementById('start-btn').addEventListener('click', () => {
-    modal.style.display = "none";
-    document.body.classList.remove('no-scroll');
-    gameActive = true; // Start your game loop here
-});
-document.getElementById('start-btn').addEventListener('touchstart', () => {
+function startCountdown(){
+    //Instructions Modal
+    const modal = document.getElementById('instructions-modal');
     // 1. Hide instructions
-    document.getElementById('instructions-modal').style.display = "none";
+    modal.style.display = "none";
     
     // 2. Show countdown
     const countdownOverlay = document.getElementById('countdown-overlay');
@@ -144,6 +138,14 @@ document.getElementById('start-btn').addEventListener('touchstart', () => {
             countdownText.innerText = count;
         }
     }, 1000); // 1-second interval
+}
+// Modal Close & Game Start - Desktop
+document.getElementById('start-btn').addEventListener('click', () => {
+    startCountdown();
+});
+// Modal Close & Game Start - Mobile
+document.getElementById('start-btn').addEventListener('touchstart', () => {
+    startCountdown();
 });
 
 //cheatcode
