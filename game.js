@@ -26,8 +26,8 @@ document.addEventListener('touchstart', (e) => {
     // prevents double-triggering if the browser also sends a click event
     if (e.cancelable) e.preventDefault(); 
 }, { passive: false });
-
-document.addEventListener('click', performJump);
+// Desktop Click
+document.addEventListener('mousedown', performJump);
 
 // 2. Obstacle Movement & Collision
 let gameLoop = setInterval(() => {
