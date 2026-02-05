@@ -5,13 +5,19 @@
     /* But don't exceed 600px on desktop */
     height: 300px;
     /* Shorter height is often better for mobile landscape */
-    border-bottom: 3px solid #ff4081;
+    border-bottom: 10px solid #a46c1e;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+    text-align: center;
+    border-left:2px;
+    border-right:2px;
+    border-top: 2px;
     margin: 20px auto;
     touch-action: none;
     /* Prevents the screen from scrolling while playing */
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(135deg, #1c96c5, #cfecf7);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -105,4 +111,32 @@
     border-radius: 15px;
     border: 2px solid #ff4081;
     text-align: center;
+    z-index: 999;       /* Bring the whole letter to the front */
+}
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); display: flex;
+    justify-content: center; align-items: center; z-index: 2000;
+    pointer-events: all; /* Ensure modal itself stays clickable */
+}
+.modal-box {
+    background: white; padding: 30px; border-radius: 20px;
+    text-align: center; max-width: 85%; border: 3px solid #ff4081;
+}
+/* Prevent scrolling when modal is open */
+body.no-scroll { overflow: hidden; height: 100%; }
+/* When modal is open, disable background clicks */
+body.no-scroll #game-world {
+    pointer-events: none;
+    filter: blur(2px); /* Optional: makes the background look "paused" */
+}
+.pink-btn {
+    position: relative; /* Essential for mobile clickability */
+    z-index: 1000;      /* Ensure the button is on top of the letter text */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Fixes "ghost" taps in Safari */
+    padding: 15px 30px; /* Larger tap target for fingers */
+}
+.pink-btn:hover {
+    background-color: #e91e63;
 }

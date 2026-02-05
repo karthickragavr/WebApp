@@ -5,9 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Dino Jump❤️</title>
   <link rel="stylesheet" href="game.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+ <div id="countdown-overlay" class="modal-overlay" style="display: none;">
+    <h1 id="countdown-text" style="font-size: 100px; color: #ff4081;">3</h1>
+</div>   
+<div id="instructions-modal" class="modal-overlay">
+    <div class="modal-box">
+        <h2>💖 Valentine's Quest 💖</h2>
+        <p>Jump over the obstacles to reach the end!</p>
+        <ul style="text-align: left;">
+            <li><strong>Desktop:</strong> Press [Space] / Left Click  to Jump.</li>
+            <li><strong>Mobile:</strong> Tap the screen to Jump.</li>
+        </ul>
+        <p><em>Finish the game to reveal a special surprise!</em></p>
+        <button id="start-btn" class="pink-btn">Start Playing</button>
+    </div>
+</div>
 <div id="game-world">
+    
     <div id="status">Score: <span id="score-val">0</span></div>
     
     <!-- The Player -->
@@ -23,7 +40,7 @@
     <div id="letter" class="hidden">
         <h2>You Won My Heart!</h2>
         <p id="daily-message"></p>
-        <p class="footer">Click <a href="surprise.html">here</a> to view your Secret Surprise.</p>
+        <button id="nav-btn" class="pink-btn">Surprise❤️</button>
     </div>
 </div>
 <script src="game.js"></script>
